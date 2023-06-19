@@ -9,6 +9,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" />
 
         <!-- Styles -->
         <style>
@@ -30,7 +31,15 @@
                     @endauth
                 </div>
             @endif
-
+            <div class="login-box">
+                <h2>Login</h2>
+                <form method="POST">
+                    @csrf
+                    <input type="text" name="username" placeholder="Username" required><br>
+                    <input type="password" name="password" placeholder="Password" required><br>
+                    <input type="submit" value="Log In">
+                </form>
+            </div>
             <div class="max-w-7xl mx-auto p-6 lg:p-8">
                 <div class="flex justify-center">
                     <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
@@ -137,4 +146,35 @@
             </div>
         </div>
     </body>
+    <style>
+        .login-box {
+            width: 300px;
+            margin: auto;
+            margin-top: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index:2;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .login-box input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </html>
