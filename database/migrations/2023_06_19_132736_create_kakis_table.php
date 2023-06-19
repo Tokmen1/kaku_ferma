@@ -17,8 +17,8 @@ return new class extends Migration
             $table->date('Dzimsanas_dati');
             $table->tinyInteger('Veselibas_stavoklis');
             $table->boolean('Nopirkts');
-            $table->string('Vetersts_PK', 50);
-            $table->foreign('Vetersts_PK')->references('PK')->on('vetersts')->onDelete('cascade');
+            $table->string('Vetarsts_PK', 50);
+            $table->foreign('Vetarsts_PK')->references('PK')->on('vetarsts')->onDelete('cascade');
             $table->string('image')->nullable();
             $table->timestamps();
         });

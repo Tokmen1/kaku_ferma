@@ -18,4 +18,9 @@ class Iepircejs extends Model
         'Uzvārds',
         'Telefona_nr',
     ];
+
+    public function kakis()
+    {
+        return $this->hasMany(KakisIepircejs::class);
+    }
 }

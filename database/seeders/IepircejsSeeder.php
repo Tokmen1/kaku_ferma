@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class IepircejsSeeder extends Seeder
 {
@@ -44,11 +45,11 @@ class IepircejsSeeder extends Seeder
         ];
 
         foreach ($data as $record) {
-            DB::table('Iepircējs')->insert([
+            DB::table('iepircejs')->insert([
                 'PK' => $record[0],
                 'Vards' => $record[1],
                 'Uzvards' => $record[2],
-                'Telefona_numurs' => $record[3],
+                'Telefona_nr' => $record[3],
             ]);
         }
     }

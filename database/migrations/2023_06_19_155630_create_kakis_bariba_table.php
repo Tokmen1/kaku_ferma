@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kakis_bariba', function (Blueprint $table) {
-            $table->string('Bariba_ID', 50);
-            $table->integer('Kakis_Cipa_Num', 50);
-            $table->primary(['Kakis_Cipa_Num', 'Bariba_ID']);
-            $table->foreign('Bariba_ID')->references('ID')->on('bariba')->onDelete('cascade');
-            $table->foreign('Kakis_Cipa_Num')->references('PK')->on('kakis')->onDelete('cascade');
+            //$table->integer('Bariba_ID', 50);
+            // $table->integer('Kakis_Cipa_Num', 50);
+            $table->foreignId('Bariba_ID')->on('bariba')->onDelete('cascade');
+            $table->foreignid('Kakis_Cipa_Num')->on('kakis')->onDelete('cascade');
+            $table->unique(['Kakis_Cipa_Num', 'Bariba_ID'])->primary();
         });
     }
 

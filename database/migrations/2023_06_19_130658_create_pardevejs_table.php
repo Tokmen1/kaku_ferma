@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('Uzvards', 100);
             $table->string('Telefona_nr', 50);
             $table->string('Konta_nr', 255);
-            $table->date('Darijuma_datums');
             $table->tinyInteger('Kvalitate');
         });
     }

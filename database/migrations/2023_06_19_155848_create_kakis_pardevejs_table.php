@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kakis_pardevejs', function (Blueprint $table) {
-            $table->string('Pardeveja_PK', 50);
-            $table->integer('Kakis_Cipa_Num', 50);
-            $table->primary(['Kakis_Cipa_Num', 'Iepircejs_PK']);
-            $table->foreign('Pardeveja_PK')->references('PK')->on('pardevejs')->onDelete('cascade');
-            $table->foreign('Kakis_Cipa_Num')->references('PK')->on('kakis')->onDelete('cascade');
-            $table->timestamps('Darijuma_datums');
+            $table->string('Pardeveja_PK', 50)->foreign('Pardeveja_PK')
+                ->references('PK')->on('pardevejs')->onDelete('cascade');
+            $table->foreignId('Kakis_Cipa_Num')->on('kakis')->onDelete('cascade');
+            $table->unique(['Kakis_Cipa_Num', 'Pardeveja_PK'])->primary();
+
+            $table->timestamps();
         });
     }
 

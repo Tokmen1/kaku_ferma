@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('Vards', 100);
             $table->string('Uzvards', 100);
             $table->string('Telefona_nr', 50);
-            $table->date('Darijuma_datums');
         });
     }
 
