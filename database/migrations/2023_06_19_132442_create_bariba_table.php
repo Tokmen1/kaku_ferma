@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bariba', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id');
+            $table->string('Nosaukums', 100);
+            $table->string('Ražotājs', 100);
+            $table->boolean('Ir_biologisks')->nullable();
         });
     }
 
