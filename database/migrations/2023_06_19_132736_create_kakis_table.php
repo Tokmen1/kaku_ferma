@@ -19,10 +19,6 @@ return new class extends Migration
             $table->boolean('Nopirkts');
             $table->string('Vetersts_PK', 50);
             $table->foreign('Vetersts_PK')->references('PK')->on('vetersts')->onDelete('cascade');
-            $table->string('Iepircejs_PK', 50);
-            $table->foreign('Iepircejs_PK')->references('PK')->on('iepircejs')->onDelete('cascade');
-            $table->string('Pardeveja_PK', 50);
-            $table->foreign('Pardeveja_PK')->references('PK')->on('pardevejs')->onDelete('cascade');
             $table->string('Rotallieta_ID', 50);
             $table->foreign('Rotallieta_ID')->references('ID')->on('rotallieta')->onDelete('cascade');
             $table->string('Bariba_ID', 50);
