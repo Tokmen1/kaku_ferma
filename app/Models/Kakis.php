@@ -19,8 +19,6 @@ class Kakis extends Model
         'Veselibas_stavoklis',
         'Nopirkts',
         'Vetersts_PK',
-        'Iepircējs_PK',
-        'Pārdevēja_PK',
         'image',
     ];
 }
