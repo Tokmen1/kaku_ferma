@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('Iepircejs_PK', 50);
             $table->integer('Kakis_Cipa_Num', 50);
             $table->primary(['Kakis_Cipa_Num', 'Iepircejs_PK']);
-            $table->foreign('Pardeveja_PK')->references('PK')->on('pardevejs')->onDelete('cascade');
+            $table->foreign('Iepircejs_PK')->references('PK')->on('iepircejs')->onDelete('cascade');
             $table->foreign('Kakis_Cipa_Num')->references('PK')->on('kakis')->onDelete('cascade');
             $table->timestamps('Darijuma_datums');
         });
