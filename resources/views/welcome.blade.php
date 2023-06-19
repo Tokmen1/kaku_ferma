@@ -17,6 +17,16 @@
         </style>
     </head>
     <body class="antialiased">
+        <div class="top">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- @include('login') -->
+        </div>
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
@@ -31,15 +41,6 @@
                     @endauth
                 </div>
             @endif
-            <div class="login-box">
-                <h2>Login</h2>
-                <form method="POST">
-                    @csrf
-                    <input type="text" name="username" placeholder="Username" required><br>
-                    <input type="password" name="password" placeholder="Password" required><br>
-                    <input type="submit" value="Log In">
-                </form>
-            </div>
             <div class="max-w-7xl mx-auto p-6 lg:p-8">
                 <div class="flex justify-center">
                     <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
@@ -147,34 +148,45 @@
         </div>
     </body>
     <style>
-        .login-box {
-            width: 300px;
-            margin: auto;
-            margin-top: 10px;
-            margin-right: 10px;
-            border: 1px solid #ccc;
-            padding: 20px;
-            text-align: center;
+            div.top ul {
+            margin: 0;
+            padding: 0;
+            left: 0;
+            padding-right: 80%;
+            background-color: red;
             position: absolute;
-            right: 0;
-            top: 0;
-            z-index:2;
-        }
+            }
 
-        .login-box input[type="text"],
-        .login-box input[type="password"] {
-            width: 100%;
+            .top {
+            background-color: #333;
+            color: #fff;
             padding: 10px;
-            margin-bottom: 10px;
-        }
+            }
 
-        .login-box input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+            .top h1 {
+            margin: 0;
+            }
+
+            .top nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            }
+
+            .top nav ul li {
+            display: inline;
+            }
+
+            .top nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            }
+
+            .top nav ul li a:hover {
+            background-color: #555;
+            }
+
+
     </style>
 </html>
