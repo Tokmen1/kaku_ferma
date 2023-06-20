@@ -5,21 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Iepircejs extends Model
+class Pardevejs extends Model
 {
     use HasFactory;
-    protected $table = 'iepircejs';
     protected $primaryKey = 'PK';
 
     protected $fillable = [
         'PK',
         'Vards',
         'Uzvards',
-        'Telefona_nr',
+        'Adrese',
+        'Epasts',
     ];
 
-    public function kakis()
+    public function kaki()
     {
-        return $this->hasMany(KakisIepircejs::class);
+        return $this->hasMany(Kakis::class);//, 'Pardevejs_PK', 'PK');
     }
 }
