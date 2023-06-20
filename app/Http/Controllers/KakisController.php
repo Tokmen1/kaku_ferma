@@ -10,8 +10,9 @@ class KakisController extends Controller
 {
     public function index()
     {
+        echo asset('storage/kaki_images/cat1.jpg');
         $kakis = Kakis::all();
-        return view('kakis.index', ['kakis' => $kakis]);
+        return view('kakisIndex', ['kakis' => $kakis]);
     }
 
     public function create()
@@ -40,7 +41,8 @@ class KakisController extends Controller
         $kakis->nopirkts = $request->input('nopirkts');
         $kakis->vetarsts_pk = $request->input('vetarsts_pk');
         $kakis->save();
-        return redirect()->route('kakis.index')->with('success', 'Kakis created successfully.');
+        
+        return redirect()->route('kakisIndex')->with('success', 'Kakis created successfully.');
     }
 
     public function show($id)

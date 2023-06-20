@@ -106,6 +106,20 @@ Route::get('/kakis_bariba/{id}/edit', [KakisBaribaController::class, 'edit'])->n
 Route::put('/kakis_bariba/{id}', [KakisBaribaController::class, 'update'])->name('kakis_bariba.update');
 Route::delete('/kakis_bariba/{id}', [KakisBaribaController::class, 'destroy'])->name('kakis_bariba.destroy');
 
+///Get images from storage
+Route::get('storage/', function ($filename)
+{
+    $path = storage_path('public/' . $filename);
+    if (!File::exists($path)) {
+        abort(404);
+    }
+    $file = File::get($path);
+    $type = File::mimeType($path);
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
+});
+
 // Languages
 Route::get('lang/home', 'LangController@index');
 Route::get('lang/change', 'LangController@change')->name('changeLang');
