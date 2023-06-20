@@ -18,14 +18,12 @@
     </head>
     <body class="antialiased">
         <div class="top">
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <!-- @include('login') -->
+            <p class="view">{{__("message.lac")}}</p>
+            <button class="view">{{__("message.sc")}}</button>
+            <div class="col-md-4">
+                @include('language')
+            </div>
+            <div id="logins">@include('login')</div>
         </div>
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             @if (Route::has('login'))
@@ -148,45 +146,52 @@
         </div>
     </body>
     <style>
-            div.top ul {
-            margin: 0;
-            padding: 0;
-            left: 0;
-            padding-right: 80%;
-            background-color: red;
-            position: absolute;
+            div.top p {
+                color: white;
+                padding: 32px 60px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                float: left;
+                text-align: center;
+                margin-top: 40px;
+                margin-bottom: 40px;
+                border-style: solid;
+                border-width: 0 1px 0 0;
+                border-color: white;
+                height: 100px;
+                font-size: 25px;
+                margin-right: 30px;
+                
             }
+            div.top button {
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                cursor: pointer;
+                float: left;
+                margin-left: 50px;
+                margin-top: 55px;
+                font-size: 25px;
+
+            }
+
+            div.top button:hover {
+                background-color: #3e8e41;
+            }
+            
 
             .top {
             background-color: #333;
             color: #fff;
             padding: 10px;
             }
-
-            .top h1 {
-            margin: 0;
-            }
-
-            .top nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            }
-
-            .top nav ul li {
-            display: inline;
-            }
-
-            .top nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            padding: 5px 10px;
-            }
-
-            .top nav ul li a:hover {
-            background-color: #555;
-            }
-
 
     </style>
 </html>
