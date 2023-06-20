@@ -10,4 +10,6 @@ return[
     'signin'=>"Pierakstīties",
     'lac'=>"Apskatīt kaķus",
     'sc'=>"Pārdot kaķus",
+    'inputing'=>"Ievadiet... ",
+    'searching'=>"Meklēt",
 ];

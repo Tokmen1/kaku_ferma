@@ -10,4 +10,6 @@ return[
     'signin'=>"Sign in",
     'lac'=>"View cats",
     'sc'=>"Selling cats",
+    'inputing'=>"Type... ",
+    'searching'=>"Search",
 ];

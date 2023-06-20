@@ -27,10 +27,17 @@
         </div>
         
         <div id="main">
-            <div #="side">
-                <p> tekstiņš</p>
+            <div id="side">
+                <div id="search-div">
+                <form method="POST">
+                    <input type="text" id="search" name="search" placeholder="{{__("message.inputing")}}"><br>
+                    <button type="submit">{{__("message.searching")}}</button>
+                </form>
+                </div>
+                <div id="sorting">
+                </div>
             </div>
-            <div #="laravelis" class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+            <div id="laravelis" class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
                 @if (Route::has('login'))
                     <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                         @auth
@@ -149,21 +156,51 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  
+        <!-- Div main beidzās -->
     </body>
     <style>
-        div #side{
-            width: 100px;
+        div#search-div{
+            margin: 0;
+            padding: 40px 0 20px 20px;
+            border: solid;
+            border-color: #333;
+        }
+        div#search-div input[type="text"] {
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 75%;
+        margin-bottom: 10px;
+        }
+
+        div#search-div button[type="submit"] {
+        padding: 8px 8px;
+        font-size: 14px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        }
+
+        div#search-div button[type="submit"]:hover {
+        background-color: #45a049;
+        }
+
+
+        div#side{
+            width: 20%;
             float: left;
-            display: inline-block;
-            position: sticky;
-            top: 0;
-            background-color: green;
+            background-color: #D3D3D3;
+            color: black;
         }
 
         div #laravelis{
+            width: 80%;
             float: left;
-            display: inline-block; 
+            background-color: white;
         }
 
 
