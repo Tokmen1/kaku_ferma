@@ -16,6 +16,7 @@ return new class extends Migration
             // $table->integer('Kakis_Cipa_Num', 50);
             $table->foreignId('Rotallieta_ID')->on('rotallieta')->onDelete('cascade');
             $table->foreignId('Kakis_Cipa_Num')->on('kakis')->onDelete('cascade');
+            $table->boolean('Ir_milaka');
             $table->unique(['Kakis_Cipa_Num', 'Rotallieta_ID'])->primary();
         });
     }

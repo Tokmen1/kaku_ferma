@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('bariba', function (Blueprint $table) {
             $table->increments('id');
             $table->string('Nosaukums', 100);
-            $table->string('Ražotājs', 100);
+            $table->string('Razotajs', 100);
             $table->boolean('Ir_biologisks')->nullable();
+            $table->timestamps();
         });
     }
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('Telefona_nr', 50);
             $table->string('Konta_nr', 255);
             $table->tinyInteger('Kvalitate');
+            $table->timestamps();
         });
     }
 

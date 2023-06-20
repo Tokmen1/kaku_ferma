@@ -23,7 +23,7 @@ class KakisRotallietaController extends Controller
         $data = $request->validate([
             'kakis_cipa_numurs' => 'required',
             'rotallieta_id' => 'required',
-            'ir_milakaa' => 'required',
+            'Ir_milaka' => 'required',
         ]);
         KakisRotallieta::create($data);
         return redirect()->route('kakis_rotallieta.index')->with('success', 'Kakis-Rotallieta created successfully.');
@@ -44,7 +44,7 @@ class KakisRotallietaController extends Controller
         $data = $request->validate([
             'kakis_cipa_numurs' => 'required',
             'rotallieta_id' => 'required',
-            'ir_milakaa' => 'required',
+            'Ir_milaka' => 'required',
         ]);
         $kakisRotallieta->update($data);
         return redirect()->route('kakis_rotallieta.index')->with('success', 'Kakis-Rotallieta updated successfully.');

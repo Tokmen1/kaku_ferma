@@ -58,13 +58,13 @@ Route::get('/vetarsts/{vetarsts}/edit', [VetarstsController::class, 'edit'])->na
 Route::put('/vetarsts/{vetarsts}', [VetarstsController::class, 'update'])->name('vetarsts.update');
 Route::delete('/vetarsts/{vetarsts}', [VetarstsController::class, 'destroy'])->name('vetarsts.destroy');
 
-Route::get('/baribas', [BaribaController::class, 'index'])->name('baribas.index');
-Route::get('/baribas/create', [BaribaController::class, 'create'])->name('baribas.create');
-Route::post('/baribas', [BaribaController::class, 'store'])->name('baribas.store');
-Route::get('/baribas/{bariba}', [BaribaController::class, 'show'])->name('baribas.show');
-Route::get('/baribas/{bariba}/edit', [BaribaController::class, 'edit'])->name('baribas.edit');
-Route::put('/baribas/{bariba}', [BaribaController::class, 'update'])->name('baribas.update');
-Route::delete('/baribas/{bariba}', [BaribaController::class, 'destroy'])->name('baribas.destroy');
+Route::get('/bariba', [BaribaController::class, 'index'])->name('bariba.index');
+Route::get('/bariba/create', [BaribaController::class, 'create'])->name('bariba.create');
+Route::post('/bariba', [BaribaController::class, 'store'])->name('bariba.store');
+Route::get('/bariba/{bariba}', [BaribaController::class, 'show'])->name('bariba.show');
+Route::get('/bariba/{bariba}/edit', [BaribaController::class, 'edit'])->name('bariba.edit');
+Route::put('/bariba/{bariba}', [BaribaController::class, 'update'])->name('bariba.update');
+Route::delete('/bariba/{bariba}', [BaribaController::class, 'destroy'])->name('bariba.destroy');
 
 Route::get('/rotallietas', [RotallietaController::class, 'index'])->name('rotallietas.index');
 Route::get('/rotallietas/create', [RotallietaController::class, 'create'])->name('rotallietas.create');

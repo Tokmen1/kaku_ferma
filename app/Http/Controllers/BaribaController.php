@@ -9,13 +9,13 @@ class BaribaController extends Controller
 {
     public function index()
     {
-        $baribas = Bariba::all();
-        return view('baribas.index', compact('baribas'));
+        $bariba = Bariba::all();
+        return view('bariba.index', compact('bariba'));
     }
 
     public function create()
     {
-        return view('baribas.create');
+        return view('bariba.create');
     }
 
     public function store(Request $request)
@@ -28,18 +28,18 @@ class BaribaController extends Controller
 
         Bariba::create($request->all());
 
-        return redirect()->route('baribas.index')
+        return redirect()->route('bariba.index')
             ->with('success', 'Bariba created successfully.');
     }
 
     public function show(Bariba $bariba)
     {
-        return view('baribas.show', compact('bariba'));
+        return view('bariba.show', compact('bariba'));
     }
 
     public function edit(Bariba $bariba)
     {
-        return view('baribas.edit', compact('bariba'));
+        return view('bariba.edit', compact('bariba'));
     }
 
     public function update(Request $request, Bariba $bariba)
@@ -52,7 +52,7 @@ class BaribaController extends Controller
 
         $bariba->update($request->all());
 
-        return redirect()->route('baribas.index')
+        return redirect()->route('bariba.index')
             ->with('success', 'Bariba updated successfully.');
     }
 
@@ -60,7 +60,7 @@ class BaribaController extends Controller
     {
         $bariba->delete();
 
-        return redirect()->route('baribas.index')
+        return redirect()->route('bariba.index')
             ->with('success', 'Bariba deleted successfully.');
     }
 }

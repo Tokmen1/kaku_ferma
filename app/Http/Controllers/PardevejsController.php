@@ -9,8 +9,8 @@ class PardevejsController extends Controller
 {
     public function index()
     {
-        $pardevejs = Pardevejs::all();
-        return view('pardevejs.index', compact('pardevejs'));
+        $pardeveji = Pardevejs::all();
+        return view('pardevejs.index', compact('pardeveji'));
     }
 
     public function create()
@@ -21,21 +21,15 @@ class PardevejsController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'PK' => 'required|unique:pardevejs',
-            'Vards' => 'required',
-            'Uzvards' => 'required',
-            'Adrese' => 'required',
-            'Epasts' => 'required',
+            'PK' => 'required|string',
+            'Vards' => 'required|string',
+            'Uzvards' => 'required|string',
+            'Telefona_nr' => 'required|string',
+            'Konta_nr' => 'required|string',
+            'Kvalitate' => 'required|integer',
         ]);
-
         Pardevejs::create($validatedData);
-
-        return redirect()->route('pardevejs.index')->with('success', 'Pardevējs has been created successfully.');
-    }
-
-    public function show(Pardevejs $pardevejs)
-    {
-        return view('pardevejs.show', compact('pardevejs'));
+        return redirect()->route('pardevejs.index')->with('success', 'Pārdevējs veiksmīgi pievienots.');
     }
 
     public function edit(Pardevejs $pardevejs)
@@ -46,22 +40,20 @@ class PardevejsController extends Controller
     public function update(Request $request, Pardevejs $pardevejs)
     {
         $validatedData = $request->validate([
-            'PK' => 'required|unique:pardevejs,PK,' . $pardevejs->id,
-            'Vards' => 'required',
-            'Uzvards' => 'required',
-            'Adrese' => 'required',
-            'Epasts' => 'required',
+            'PK' => 'required|string',
+            'Vards' => 'required|string',
+            'Uzvards' => 'required|string',
+            'Telefona_nr' => 'required|string',
+            'Konta_nr' => 'required|string',
+            'Kvalitate' => 'required|integer',
         ]);
-
         $pardevejs->update($validatedData);
-
-        return redirect()->route('pardevejs.index')->with('success', 'Pardevējs has been updated successfully.');
+        return redirect()->route('pardevejs.index')->with('success', 'Pārdevējs veiksmīgi atjaunots.');
     }
 
     public function destroy(Pardevejs $pardevejs)
     {
         $pardevejs->delete();
-
-        return redirect()->route('pardevejs.index')->with('success', 'Pardevējs has been deleted successfully.');
+        return redirect()->route('pardevejs.index')->with('success', 'Pārdevējs veiksmīgi dzēsts.');
     }
 }
