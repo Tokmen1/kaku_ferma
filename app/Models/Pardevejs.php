@@ -14,8 +14,9 @@ class Pardevejs extends Model
         'PK',
         'Vards',
         'Uzvards',
-        'Adrese',
-        'Epasts',
+        'Telefona_nr',
+        'Konta_nr',
+        'Kvalitate',
     ];
 
     public function kaki()

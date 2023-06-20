@@ -10,7 +10,7 @@ class KakisRotallieta extends Model
     use HasFactory;
     protected $table = 'kakis_rotallieta';
 
-    protected $fillable = ['kakis_cipa_numurs', 'rotallieta_id', 'ir_milakaa'];
+    protected $fillable = ['kakis_cipa_numurs', 'rotallieta_id', 'Ir_milaka'];
 
     public function kakis()
     {

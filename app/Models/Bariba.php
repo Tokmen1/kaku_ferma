@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bariba extends Model
 {
     use HasFactory;
+    protected $table = "bariba";
     protected $primaryKey = 'ID';
 
     protected $fillable = [

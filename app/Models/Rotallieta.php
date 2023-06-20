@@ -14,7 +14,7 @@ class Rotallieta extends Model
     protected $fillable = [
         'Nosaukums',
         'Tips',
-    ];
+    ]; 
 
     public function kakis()
     {

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('Uzvards', 100);
             $table->date('Stazs');
             $table->string('Telefona_nr', 50);
+            $table->timestamps();
         });
     }
 

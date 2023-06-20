@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kakis;
+use Illuminate\Support\Facades\Storage;
 
 class KakisController extends Controller
 {
     public function index()
     {
         $kakis = Kakis::all();
-
-        return view('kakis.index', compact('kakis'));
+        return view('kakis.index', ['kakis' => $kakis]);
     }
 
     public function create()
@@ -21,50 +21,93 @@ class KakisController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'Cipa_numurs' => 'required',
-            'Vards' => 'required',
-            'Dzimsanas_dati' => 'required',
-            'Veselibas_stavoklis' => 'required',
-            'Nopirkts' => 'required',
-            'Vetarsts_PK' => 'nullable',
-            'image' => 'nullable',
+        $request->validate([
+            'image' => 'required|image',
+            'cipa_numurs' => 'required',
+            'vards' => 'required',
+            'dzimsanas_dati' => 'required|date',
+            'veselibas_stavoklis' => 'required',
+            'nopirkts' => 'required',
+            'vetarsts_pk' => 'required|exists:vetarsts,Personas_kods',
         ]);
-        $kakis = Kakis::create($validatedData);
+        $imagePath = $request->file('image')->store('kakis_images', 'kakis_images');
+        $kakis = new Kakis();
+        $kakis->image = $imagePath;
+        $kakis->cipa_numurs = $request->input('cipa_numurs');
+        $kakis->vards = $request->input('vards');
+        $kakis->dzimsanas_dati = $request->input('dzimsanas_dati');
+        $kakis->veselibas_stavoklis = $request->input('veselibas_stavoklis');
+        $kakis->nopirkts = $request->input('nopirkts');
+        $kakis->vetarsts_pk = $request->input('vetarsts_pk');
+        $kakis->save();
         return redirect()->route('kakis.index')->with('success', 'Kakis created successfully.');
     }
 
     public function show($id)
     {
-        $kakis = Kakis::find($id);
-        return view('kakis.show', compact('kakis'));
+        $kakis = Kakis::findOrFail($id);
+        $imageUrl = Storage::disk('kakis_images')->url($kakis->image);
+
+        $cipaNumurs = $kakis->cipa_numurs;
+        $vards = $kakis->vards;
+        $dzimsanasDati = $kakis->dzimsanas_dati;
+        $veselibasStavoklis = $kakis->veselibas_stavoklis;
+        $nopirkts = $kakis->nopirkts;
+        $vetarstsPK = $kakis->vetarsts_PK;
+
+        return view('kakis.show', [
+            'kakis' => $kakis,
+            'imageUrl' => $imageUrl,
+            'cipaNumurs' => $cipaNumurs,
+            'vards' => $vards,
+            'dzimsanasDati' => $dzimsanasDati,
+            'veselibasStavoklis' => $veselibasStavoklis,
+            'nopirkts' => $nopirkts,
+            'vetarstsPK' => $vetarstsPK,
+        ]);
+        //return view('kakis.show', ['kakis' => $kakis]);
     }
 
     public function edit($id)
     {
-        $kakis = Kakis::find($id);
-        return view('kakis.edit', compact('kakis'));
+        $kakis = Kakis::findOrFail($id);
+        return view('kakis.edit', ['kakis' => $kakis]);
     }
 
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'Cipa_numurs' => 'required',
-            'Vards' => 'required',
-            'Dzimsanas_dati' => 'required',
-            'Veselibas_stavoklis' => 'required',
-            'Nopirkts' => 'required',
-            'Vetarsts_PK' => 'nullable',
-            'image' => 'nullable',
+        $request->validate([
+            'image' => 'nullable|image',
+            'cipa_numurs' => 'required',
+            'vards' => 'required',
+            'dzimsanas_dati' => 'required|date',
+            'veselibas_stavoklis' => 'required',
+            'nopirkts' => 'required',
+            'vetarsts_pk' => 'required|exists:vetarsts,Personas_kods',
         ]);
-        $kakis = Kakis::find($id);
-        $kakis->update($validatedData);
+        $kakis = Kakis::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            // Delete the previous image
+            Storage::disk('kakis_images')->delete($kakis->image);
+            // Store the new image file
+            $imagePath = $request->file('image')->store('kakis_images', 'kakis_images');
+            $kakis->image = $imagePath;
+        }
+        $kakis->cipa_numurs = $request->input('cipa_numurs');
+        $kakis->vards = $request->input('vards');
+        $kakis->dzimsanas_dati = $request->input('dzimsanas_dati');
+        $kakis->veselibas_stavoklis = $request->input('veselibas_stavoklis');
+        $kakis->nopirkts = $request->input('nopirkts');
+        $kakis->vetarsts_pk = $request->input('vetarsts_pk');
+        $kakis->save();
         return redirect()->route('kakis.index')->with('success', 'Kakis updated successfully.');
     }
 
     public function destroy($id)
     {
-        $kakis = Kakis::find($id);
+        $kakis = Kakis::findOrFail($id);
+        Storage::disk('kakis_images')->delete($kakis->image);
         $kakis->delete();
         return redirect()->route('kakis.index')->with('success', 'Kakis deleted successfully.');
     }
