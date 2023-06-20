@@ -18,7 +18,7 @@ class Vetarsts extends Model
         'Telefona_nr',
     ];
 
-    public function kaķi()
+    public function kaki()
     {
         return $this->hasMany(Kakis::class, 'Vetarsts_PK', 'PK');
     }

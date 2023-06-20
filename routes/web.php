@@ -16,6 +16,13 @@ use App\Http\Controllers\IepircejsController;
 use App\Http\Controllers\KakisController;
 use App\Http\Controllers\KakisIepircējsController;
 use App\Http\Controllers\VetarstsController;
+use App\Http\Controllers\BaribaController;
+use App\Http\Controllers\RotallietaController;
+use App\Http\Controllers\KakisPardevejsController;
+use App\Http\Controllers\PardevejsController;
+use App\Http\Controllers\KakisRotallietaController;
+use App\Http\Controllers\KakisBaribaController;
+
 
 Route::resource('kakis', KakisController::class);
 
@@ -50,6 +57,54 @@ Route::get('/vetarsts/{vetarsts}', [VetarstsController::class, 'show'])->name('v
 Route::get('/vetarsts/{vetarsts}/edit', [VetarstsController::class, 'edit'])->name('vetarsts.edit');
 Route::put('/vetarsts/{vetarsts}', [VetarstsController::class, 'update'])->name('vetarsts.update');
 Route::delete('/vetarsts/{vetarsts}', [VetarstsController::class, 'destroy'])->name('vetarsts.destroy');
+
+Route::get('/baribas', [BaribaController::class, 'index'])->name('baribas.index');
+Route::get('/baribas/create', [BaribaController::class, 'create'])->name('baribas.create');
+Route::post('/baribas', [BaribaController::class, 'store'])->name('baribas.store');
+Route::get('/baribas/{bariba}', [BaribaController::class, 'show'])->name('baribas.show');
+Route::get('/baribas/{bariba}/edit', [BaribaController::class, 'edit'])->name('baribas.edit');
+Route::put('/baribas/{bariba}', [BaribaController::class, 'update'])->name('baribas.update');
+Route::delete('/baribas/{bariba}', [BaribaController::class, 'destroy'])->name('baribas.destroy');
+
+Route::get('/rotallietas', [RotallietaController::class, 'index'])->name('rotallietas.index');
+Route::get('/rotallietas/create', [RotallietaController::class, 'create'])->name('rotallietas.create');
+Route::post('/rotallietas', [RotallietaController::class, 'store'])->name('rotallietas.store');
+Route::get('/rotallietas/{rotallieta}', [RotallietaController::class, 'show'])->name('rotallietas.show');
+Route::get('/rotallietas/{rotallieta}/edit', [RotallietaController::class, 'edit'])->name('rotallietas.edit');
+Route::put('/rotallietas/{rotallieta}', [RotallietaController::class, 'update'])->name('rotallietas.update');
+Route::delete('/rotallietas/{rotallieta}', [RotallietaController::class, 'destroy'])->name('rotallietas.destroy');
+
+Route::get('/pardevejs', [PardevejsController::class, 'index'])->name('pardevejs.index');
+Route::get('/pardevejs/create', [PardevejsController::class, 'create'])->name('pardevejs.create');
+Route::post('/pardevejs', [PardevejsController::class, 'store'])->name('pardevejs.store');
+Route::get('/pardevejs/{pardevejs}', [PardevejsController::class, 'show'])->name('pardevejs.show');
+Route::get('/pardevejs/{pardevejs}/edit', [PardevejsController::class, 'edit'])->name('pardevejs.edit');
+Route::put('/pardevejs/{pardevejs}', [PardevejsController::class, 'update'])->name('pardevejs.update');
+Route::delete('/pardevejs/{pardevejs}', [PardevejsController::class, 'destroy'])->name('pardevejs.destroy');
+
+Route::get('/kakis_pardevejs', [KakisPardevejsController::class, 'index'])->name('kakis_pardevejs.index');
+Route::get('/kakis_pardevejs/create', [KakisPardevejsController::class, 'create'])->name('kakis_pardevejs.create');
+Route::post('/kakis_pardevejs', [KakisPardevejsController::class, 'store'])->name('kakis_pardevejs.store');
+Route::get('/kakis_pardevejs/{kakis_pardevejs}', [KakisPardevejsController::class, 'show'])->name('kakis_pardevejs.show');
+Route::get('/kakis_pardevejs/{kakis_pardevejs}/edit', [KakisPardevejsController::class, 'edit'])->name('kakis_pardevejs.edit');
+Route::put('/kakis_pardevejs/{kakis_pardevejs}', [KakisPardevejsController::class, 'update'])->name('kakis_pardevejs.update');
+Route::delete('/kakis_pardevejs/{kakis_pardevejs}', [KakisPardevejsController::class, 'destroy'])->name('kakis_pardevejs.destroy');
+
+Route::get('/kakis-rotallieta', [KakisRotallietaController::class, 'index'])->name('kakis_rotallieta.index');
+Route::get('/kakis-rotallieta/create', [KakisRotallietaController::class, 'create'])->name('kakis_rotallieta.create');
+Route::post('/kakis-rotallieta', [KakisRotallietaController::class, 'store'])->name('kakis_rotallieta.store');
+Route::get('/kakis-rotallieta/{kakisRotallieta}', [KakisRotallietaController::class, 'show'])->name('kakis_rotallieta.show');
+Route::get('/kakis-rotallieta/{kakisRotallieta}/edit', [KakisRotallietaController::class, 'edit'])->name('kakis_rotallieta.edit');
+Route::put('/kakis-rotallieta/{kakisRotallieta}', [KakisRotallietaController::class, 'update'])->name('kakis_rotallieta.update');
+Route::delete('/kakis-rotallieta/{kakisRotallieta}', [KakisRotallietaController::class, 'destroy'])->name('kakis_rotallieta.destroy');
+
+Route::get('/kakis_bariba', [KakisBaribaController::class, 'index'])->name('kakis_bariba.index');
+Route::get('/kakis_bariba/create', [KakisBaribaController::class, 'create'])->name('kakis_bariba.create');
+Route::post('/kakis_bariba', [KakisBaribaController::class, 'store'])->name('kakis_bariba.store');
+Route::get('/kakis_bariba/{id}', [KakisBaribaController::class, 'show'])->name('kakis_bariba.show');
+Route::get('/kakis_bariba/{id}/edit', [KakisBaribaController::class, 'edit'])->name('kakis_bariba.edit');
+Route::put('/kakis_bariba/{id}', [KakisBaribaController::class, 'update'])->name('kakis_bariba.update');
+Route::delete('/kakis_bariba/{id}', [KakisBaribaController::class, 'destroy'])->name('kakis_bariba.destroy');
 
 // Languages
 Route::get('lang/home', 'LangController@index');

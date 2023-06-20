@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Vetarsts;
 
 class VetarstsController extends Controller
 {
@@ -21,13 +22,13 @@ class VetarstsController extends Controller
     {
         $validatedData = $request->validate([
             'PK' => 'required|unique:vetarsts',
-            'Vārds' => 'required',
-            'Uzvārds' => 'required',
-            'Stāžs' => 'required',
+            'Vards' => 'required',
+            'Uzvards' => 'required',
+            'Stazs' => 'required',
             'Telefona_nr' => 'required',
         ]);
         Vetarsts::create($validatedData);
-        return redirect()->route('vetarsts.index')->with('success', 'Vetārsts has been created successfully.');
+        return redirect()->route('vetarsts.index')->with('success', 'Vetarsts has been created successfully.');
     }
 
     public function show(Vetarsts $vetarsts)
@@ -44,19 +45,19 @@ class VetarstsController extends Controller
     {
         $validatedData = $request->validate([
             'PK' => 'required|unique:vetarsts,PK,' . $vetarsts->id,
-            'Vārds' => 'required',
-            'Uzvārds' => 'required',
-            'Stāžs' => 'required',
+            'Vards' => 'required',
+            'Uzvards' => 'required',
+            'Stažs' => 'required',
             'Telefona_nr' => 'required',
         ]);
 
         $vetarsts->update($validatedData);
-        return redirect()->route('vetarsts.index')->with('success', 'Vetārsts has been updated successfully.');
+        return redirect()->route('vetarsts.index')->with('success', 'Vetarsts has been updated successfully.');
     }
 
     public function destroy(Vetarsts $vetarsts)
     {
         $vetarsts->delete();
-        return redirect()->route('vetarsts.index')->with('success', 'Vetārsts has been deleted successfully.');
+        return redirect()->route('vetarsts.index')->with('success', 'Vetarsts has been deleted successfully.');
     }
 }
