@@ -1,3 +1,24 @@
+# DB seeder commands
+
+php artisan db:seed
+
+or one by one
+
+- php artisan db:seed --class=VetarstsSeeder
+- php artisan db:seed --class=BaribaSeeder
+- php artisan db:seed --class=PardevejsSeeder
+- php artisan db:seed --class=IepircejsSeeder
+
+- php artisan db:seed --class=RotallietaSeeder
+- php artisan db:seed --class=KakisSeeder
+- php artisan db:seed --class=KakisRotallietaSeeder
+- php artisan db:seed --class=KakisBaribaSeeder
+- php artisan db:seed --class=KakisIepircejsSeeder
+- php artisan db:seed --class=KakisPardevejsSeeder
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
