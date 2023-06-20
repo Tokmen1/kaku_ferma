@@ -54,6 +54,13 @@
             padding-top: 1px;
             padding-bottom: 1px;
         }
+        
+        input#login:hover{
+            background-color: #3e8e41;
+        }
+        input#signup:hover{
+            background-color: #808080;
+        }
 
     </style>
 </head>
@@ -61,13 +68,13 @@
 
 
 <div class="login-box">
-    <h2>Login</h2>
+    <h2>{{__("message.title")}}</h2>
     <form method="POST">
         @csrf
-        <input type="text" name="username" placeholder="Username" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-        <input type="submit" value="Log In">
-        <input type="submit" id="signup" value="Sign Up">
+        <input type="text" name="username" placeholder="{{__("message.user")}}" required><br>
+        <input type="password" name="password" placeholder="{{__("message.pass")}}" required><br>
+        <input type="submit" id="login" value="{{__("message.login")}}">
+        <input type="submit" id="signup" value="{{__("message.signin")}}">
     </form>
 </div>
 

@@ -32,6 +32,7 @@ Route::get('/iepirceji/{iepircejs}/edit', [IepircejsController::class, 'edit'])-
 Route::put('/iepirceji/{iepircejs}', [IepircejsController::class, 'update'])->name('iepirceji.update');
 Route::delete('/iepirceji/{iepircejs}', [IepircejsController::class, 'destroy'])->name('iepirceji.destroy');
 
-Route::get('/', function () {
+Route::get('/{lang?}', function ($lang="en") {
+    App::SetLocale($lang);
     return view('welcome');
 });
