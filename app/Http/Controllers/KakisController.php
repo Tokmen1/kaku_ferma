@@ -10,7 +10,6 @@ class KakisController extends Controller
 {
     public function index()
     {
-        echo asset('storage/kaki_images/cat1.jpg');
         $kakis = Kakis::all();
         return view('kakisIndex', ['kakis' => $kakis]);
     }
