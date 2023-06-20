@@ -110,6 +110,7 @@ Route::delete('/kakis_bariba/{id}', [KakisBaribaController::class, 'destroy'])->
 Route::get('lang/home', 'LangController@index');
 Route::get('lang/change', 'LangController@change')->name('changeLang');
 
-Route::get('/', function () {
+Route::get('/{lang?}', function ($lang="en") {
+    App::SetLocale($lang);
     return view('welcome');
 });
