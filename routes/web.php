@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\IepircejsController;
 use App\Http\Controllers\KakisController;
+use App\Http\Controllers\KakisIepircējsController;
+use App\Http\Controllers\VetarstsController;
+
 Route::resource('kakis', KakisController::class);
 
 Route::get('/kakis', [KakisController::class, 'index'])->name('kakis.index');
@@ -31,6 +34,26 @@ Route::get('/iepirceji/{iepircejs}', [IepircejsController::class, 'show'])->name
 Route::get('/iepirceji/{iepircejs}/edit', [IepircejsController::class, 'edit'])->name('iepirceji.edit');
 Route::put('/iepirceji/{iepircejs}', [IepircejsController::class, 'update'])->name('iepirceji.update');
 Route::delete('/iepirceji/{iepircejs}', [IepircejsController::class, 'destroy'])->name('iepirceji.destroy');
+
+Route::get('/kakis_iepircejs', [KakisIepircejsController::class, 'index'])->name('kakis_iepircejs.index');
+Route::get('/kakis_iepircejs/create', [KakisIepircejsController::class, 'create'])->name('kakis_iepircejs.create');
+Route::post('/kakis_iepircejs', [KakisIepircejsController::class, 'store'])->name('kakis_iepircejs.store');
+Route::get('/kakis_iepircejs/{kakisIepircējs}', [KakisIepircejsController::class, 'show'])->name('kakis_iepircejs.show');
+Route::get('/kakis_iepircejs/{kakisIepircējs}/edit', [KakisIepircejsController::class, 'edit'])->name('kakis_iepircejs.edit');
+Route::put('/kakis_iepircejs/{kakisIepircējs}', [KakisIepircejsController::class, 'update'])->name('kakis_iepircejs.update');
+Route::delete('/kakis_iepircejs/{kakisIepircējs}', [KakisIepircejsController::class, 'destroy'])->name('kakis_iepircejs.destroy');
+
+Route::get('/vetarsts', [VetarstsController::class, 'index'])->name('vetarsts.index');
+Route::get('/vetarsts/create', [VetarstsController::class, 'create'])->name('vetarsts.create');
+Route::post('/vetarsts', [VetarstsController::class, 'store'])->name('vetarsts.store');
+Route::get('/vetarsts/{vetarsts}', [VetarstsController::class, 'show'])->name('vetarsts.show');
+Route::get('/vetarsts/{vetarsts}/edit', [VetarstsController::class, 'edit'])->name('vetarsts.edit');
+Route::put('/vetarsts/{vetarsts}', [VetarstsController::class, 'update'])->name('vetarsts.update');
+Route::delete('/vetarsts/{vetarsts}', [VetarstsController::class, 'destroy'])->name('vetarsts.destroy');
+
+// Languages
+Route::get('lang/home', 'LangController@index');
+Route::get('lang/change', 'LangController@change')->name('changeLang');
 
 Route::get('/', function () {
     return view('welcome');
