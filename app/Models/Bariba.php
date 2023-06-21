@@ -19,7 +19,7 @@ class Bariba extends Model
 
     public function kakis()
     {
-        return $this->belongsToMany(Kakis::class, 'Kakis_Bariba', 'Bariba_ID', 'Cipa_numurs')
+        return $this->belongsToMany(Kakis::class, 'kakis_bariba', 'Bariba_ID', 'Cipa_numurs')
             ->withTimestamps();
     }
 }

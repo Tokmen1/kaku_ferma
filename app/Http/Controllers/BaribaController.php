@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Bariba;
+use App\Models\Kakis;
 
 class BaribaController extends Controller
 {
@@ -11,6 +12,18 @@ class BaribaController extends Controller
     {
         $bariba = Bariba::all();
         return view('bariba.index', compact('bariba'));
+    }
+
+    public function getKakaBariba($kaka_cipa_numurs)
+    {
+        $kakis = Kakis::where('Cipa_numurs', $kaka_cipa_numurs)->first();
+
+        if (!$kakis) {
+            return response()->json(['error' => 'kakis not found'], 404);
+        }
+        $baribas = $kakis->baribas()->get();
+
+        return response()->json($baribas);
     }
 
     public function create()

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Iepircejs;
 use Illuminate\Http\Request;
+use App\Models\Kakis;
 
 class IepircejsController extends Controller
 {
@@ -11,6 +12,17 @@ class IepircejsController extends Controller
     {
         $iepirceji = Iepircejs::all();
         return view('iepirceji.index', compact('iepirceji'));
+    }
+
+    public function getKakaIepircejs($kaka_cipa_numurs)
+    {
+        $kakis = Kakis::where('Cipa_numurs', $kaka_cipa_numurs)->first();
+        if (!$kakis) {
+            return response()->json(['error' => 'kaka iepircejs not found'], 404);
+        }
+        $iepircejs = $kakis->iepirceji()->first();
+
+        return response()->json($iepircejs);
     }
 
     public function create()

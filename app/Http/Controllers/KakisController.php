@@ -13,7 +13,12 @@ class KakisController extends Controller
         $kakis = Kakis::all();
         return view('kakisIndex', ['kakis' => $kakis]);
     }
-
+    public function getAllData()
+    {
+        $kakis = Kakis::all();
+        return ['kakis' => $kakis];
+        // return view('kakisIndex', ['kakis' => $kakis]);
+    }
     public function create()
     {
         return view('kakisCreate');
