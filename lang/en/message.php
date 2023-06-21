@@ -12,4 +12,7 @@ return[
     'sc'=>"Selling cats",
     'inputing'=>"Type... ",
     'searching'=>"Search",
+    'cat-name'=>"Cat's name: ",
+    'born'=>"Date of birth: ",
+    'health'=>"Health status: ",
 ];

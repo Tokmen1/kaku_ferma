@@ -21,10 +21,7 @@ class Kakis extends Model
         'Vetersts_PK',
         'image',
     ];
-    public function vetarsts()
-    {
-        return $this->belongsTo(Vetarsts::class, 'Vetarsts_PK', 'PK');
-    }
+
 
     public function iepirceji()
     {
