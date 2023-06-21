@@ -12,4 +12,7 @@ return[
     'sc'=>"Pārdot kaķus",
     'inputing'=>"Ievadiet... ",
     'searching'=>"Meklēt",
+    'cat-name'=>"Kaķa vārds: ",
+    'born'=>"Dzimšanas datums: ",
+    'health'=>"Veselības stāvoklis: ",
 ];

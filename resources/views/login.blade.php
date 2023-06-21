@@ -24,6 +24,7 @@
             position: relative;
             right: 0;
             top: 0;
+            border-radius: 4px;
         }
 
         .login-box input[type="text"],
@@ -31,9 +32,11 @@
             width: 100%;
             padding: 2px;
             margin-bottom: 2px;
+            border-radius: 4px;
         }
 
         .login-box input[type="submit"] {
+            border-radius: 4px;
             width: 50%;
             padding: 10px;
             background-color: #4CAF50;
@@ -48,6 +51,7 @@
             width: 50%;
             padding: 10px;
             background-color: white;
+            border-radius: 4px;
             color: black;
             border: none;
             cursor: pointer;

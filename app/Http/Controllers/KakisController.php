@@ -16,7 +16,7 @@ class KakisController extends Controller
 
     public function create()
     {
-        return view('kakis.create');
+        return view('kakisCreate');
     }
 
     public function store(Request $request)
@@ -30,9 +30,9 @@ class KakisController extends Controller
             'nopirkts' => 'required',
             'vetarsts_pk' => 'required|exists:vetarsts,PK',
         ]);
-        $imagePath = $request->file('image')->store('kakis_images', 'kakis_images');
+        $imagePath = $request->file('image')->store('kakis_images', 'public');
         $kakis = new Kakis();
-        $kakis->image = $imagePath;
+        $kakis->image = asset('storage/' . $imagePath);
         $kakis->cipa_numurs = $request->input('cipa_numurs');
         $kakis->vards = $request->input('vards');
         $kakis->dzimsanas_dati = $request->input('dzimsanas_dati');
@@ -41,7 +41,7 @@ class KakisController extends Controller
         $kakis->vetarsts_pk = $request->input('vetarsts_pk');
         $kakis->save();
         
-        return redirect()->route('kakisIndex')->with('success', 'Kakis created successfully.');
+        return redirect('/')->with('success', 'Kakis created successfully.');
     }
 
     public function show($id)

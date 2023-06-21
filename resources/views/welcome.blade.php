@@ -21,7 +21,8 @@
             <p class="view">{{__("message.lac")}}</p>
             <button id="myButton" class="view">{{__("message.sc")}}</button>
             <div id="popup">
-                <a href="{{ action([App\Http\Controllers\KakisController::class, 'edit'],['kakis' => '12345678'])}}">Add new Carmodel</a>
+                @include('kakisCreate')
+                
             </div>
             <div class="col-md-4">
                 @include('language')
@@ -59,6 +60,9 @@
             border: 1px solid #ccc;
             padding: 20px;
             color: black;
+            width: 40%;
+            height: 40%;
+            border: 2px solid #D3D3D3;;
         }
 
 
@@ -166,12 +170,12 @@
             document.getElementById("popup").style.display = "block";
         });
 
-        document.addEventListener("click", function(event) {
-            var popup = document.getElementById("popup");
-            var button = document.getElementById("myButton");
-            if (event.target != popup && event.target != button) {
-                popup.style.display = "none";
-            }
-        });
+        // document.addEventListener("click", function(event) {
+        //     var popup = document.getElementById("popup");
+        //     var button = document.getElementById("myButton");
+        //     if (event.target != popup && event.target != button) {
+        //         popup.style.display = "none";
+        //     }
+        // });
     </script>
 </html>
