@@ -17,11 +17,11 @@ class KakisBariba extends Model
 
     public function bariba()
     {
-        return $this->belongsTo(Bariba::class, 'bariba_id');
+        return $this->belongsTo(Bariba::class, 'Bariba_ID');
     }
 
     public function kakis()
     {
-        return $this->belongsTo(Kakis::class, 'cipa_numurs');
+        return $this->belongsTo(Kakis::class, 'Kakis_Cipa_Num');
     }
 }

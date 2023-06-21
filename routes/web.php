@@ -43,6 +43,9 @@ Route::get('/iepirceji/{iepircejs}/edit', [IepircejsController::class, 'edit'])-
 Route::put('/iepirceji/{iepircejs}', [IepircejsController::class, 'update'])->name('iepirceji.update');
 Route::delete('/iepirceji/{iepircejs}', [IepircejsController::class, 'destroy'])->name('iepirceji.destroy');
 
+Route::get('/getKakaIepircejs/{Cipa_numurs}', [IepircejsController::class, 'getKakaIepircejs'])->name('getKakaIepircejs');
+
+
 Route::get('/kakis_iepircejs', [KakisIepircejsController::class, 'index'])->name('kakis_iepircejs.index');
 Route::get('/kakis_iepircejs/create', [KakisIepircejsController::class, 'create'])->name('kakis_iepircejs.create');
 Route::post('/kakis_iepircejs', [KakisIepircejsController::class, 'store'])->name('kakis_iepircejs.store');
@@ -66,6 +69,8 @@ Route::get('/bariba/{bariba}', [BaribaController::class, 'show'])->name('bariba.
 Route::get('/bariba/{bariba}/edit', [BaribaController::class, 'edit'])->name('bariba.edit');
 Route::put('/bariba/{bariba}', [BaribaController::class, 'update'])->name('bariba.update');
 Route::delete('/bariba/{bariba}', [BaribaController::class, 'destroy'])->name('bariba.destroy');
+
+Route::get('/getKakaBariba/{Cipa_numurs}', [BaribaController::class, 'getKakaBariba'])->name('getKakaBariba');
 
 Route::get('/rotallietas', [RotallietaController::class, 'index'])->name('rotallietas.index');
 Route::get('/rotallietas/create', [RotallietaController::class, 'create'])->name('rotallietas.create');
