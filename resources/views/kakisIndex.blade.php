@@ -32,6 +32,12 @@
                         <p>{{ $kaks->Dzimsanas_dati }}</p>
                         <p><i class="material-icons">star</i>{{ $kaks->Veselibas_stavoklis }}</p>
                         <a href="{{ action([App\Http\Controllers\KakisController::class, 'edit'],['kakis' => $kaks->Cipa_numurs ])}}">Edit</a>
+                        <form method="POST"
+                        action="{{ route('kakis.destroy', ['kakis' => $kaks->Cipa_numurs] )}}">
+                        @csrf
+                        @method('DELETE')
+                        <button id="del" type="submit" value="delete">Delete</button>
+                        </form>
                     </div>
                 </div>
             </li>
@@ -53,11 +59,21 @@
         color: black;
         text-decoration:none;
         border: solid 1px #4CAF50;
-        padding: 2px 4px;
+        padding: 4px 6px;
         background: #4CAF50;
         color: white;
         border-radius: 4px;
     }
+    button#del{
+        color: black;
+        text-decoration:none;
+        padding: 2px 4px;
+        background: red;
+        color: white;
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+
     ul {
         list-style: none;
         padding: 0;
