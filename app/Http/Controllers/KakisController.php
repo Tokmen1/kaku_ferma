@@ -33,7 +33,7 @@ class KakisController extends Controller
             'dzimsanas_dati' => 'required|date',
             'veselibas_stavoklis' => 'required',
             'nopirkts' => 'required',
-            'vetarsts_pk' => 'required|exists:vetarsts,Personas_kods',
+            'vetarsts_pk' => 'required|exists:vetarsts,PK',
         ]);
         $imagePath = $request->file('image')->store('kakis_images', 'kakis_images');
         $kakis = new Kakis();
@@ -52,7 +52,7 @@ class KakisController extends Controller
     public function show($id)
     {
         $kakis = Kakis::findOrFail($id);
-        $imageUrl = Storage::disk('kakis_images')->url($kakis->image);
+        $image = Storage::disk('kakis_images')->url($kakis->image);
 
         $cipaNumurs = $kakis->cipa_numurs;
         $vards = $kakis->vards;
@@ -63,7 +63,7 @@ class KakisController extends Controller
 
         return view('kakis.show', [
             'kakis' => $kakis,
-            'imageUrl' => $imageUrl,
+            'image' => $image,
             'cipaNumurs' => $cipaNumurs,
             'vards' => $vards,
             'dzimsanasDati' => $dzimsanasDati,
@@ -77,7 +77,7 @@ class KakisController extends Controller
     public function edit($id)
     {
         $kakis = Kakis::findOrFail($id);
-        return view('kakis.edit', ['kakis' => $kakis]);
+        return view('kakisEdit', ['kakis' => $kakis]);
     }
 
     public function update(Request $request, $id)
@@ -89,7 +89,7 @@ class KakisController extends Controller
             'dzimsanas_dati' => 'required|date',
             'veselibas_stavoklis' => 'required',
             'nopirkts' => 'required',
-            'vetarsts_pk' => 'required|exists:vetarsts,Personas_kods',
+            'vetarsts_pk' => 'required|exists:vetarsts,PK',
         ]);
         $kakis = Kakis::findOrFail($id);
 
