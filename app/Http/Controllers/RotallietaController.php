@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rotallieta;
+use App\Models\Kakis;
 
 class RotallietaController extends Controller
 {
@@ -11,6 +12,21 @@ class RotallietaController extends Controller
     {
         $rotallietas = Rotallieta::all();
         return view('rotallietas.index', compact('rotallietas'));
+    }
+
+    public function getKakaRotalllietas($kaka_cipa_numurs)
+    {
+        // Retrieve the cat based on the provided Čipa_numurs
+        $kakis = Kakis::where('Cipa_numurs', $kaka_cipa_numurs)->first();
+
+        if (!$kakis) {
+            return response()->json(['error' => 'Cat not found'], 404);
+        }
+
+        // Retrieve the toys related to the cat using the Kaķis_Rotaļlieta relationship
+        $rotallietas = $kakis->rotallietas;
+
+        return response()->json($rotallietas);
     }
 
     public function create()

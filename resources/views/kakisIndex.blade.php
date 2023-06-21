@@ -18,6 +18,7 @@
             <li>
                 <div class="image-container">
                     <img src="{{ $kaks->image }}" alt="nava kakis" title="" />
+                    <!-- <img src="{{ asset('http://localhost:8000/storage/kakis_images/cat.jpg') }}" height="100px" width="100px" alt=""> -->
                     <div class="info">
                         <p>{{ $kaks->Vards }}</p>
                         <p>{{ $kaks->Dzimsanas_dati }}</p>

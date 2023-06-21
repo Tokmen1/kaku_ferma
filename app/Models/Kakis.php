@@ -40,9 +40,9 @@ class Kakis extends Model
 
     public function rotallietas()
     {
-        return $this->belongsToMany(Rotallieta::class, 'Kakis_Rotallieta', 'Kakis_Cipa_numurs', 'Rotallieta_ID')
-            ->withPivot('Ir_milaka')
-            ->withTimestamps();
+        return $this->belongsToMany(Rotallieta::class, 'kakis_rotallieta', 'Kakis_Cipa_Num', 'Rotallieta_ID')
+            ->withPivot('Ir_milaka');
+            // ->withTimestamps();
     }
 
     public function baribas()

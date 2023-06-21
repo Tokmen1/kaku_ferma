@@ -27,6 +27,7 @@ use App\Http\Controllers\KakisBaribaController;
 Route::resource('kakis', KakisController::class);
 
 Route::get('/kakis', [KakisController::class, 'index'])->name('kakis.index');
+Route::get('/kakis/getAllData', [KakisController::class, 'getAllData'])->name('kakis.getAllData');
 Route::get('/kakis/create', [KakisController::class, 'create'])->name('kakis.create');
 Route::post('/kakis', [KakisController::class, 'store'])->name('kakis.store');
 Route::get('/kakis/{kakis}', [KakisController::class, 'show'])->name('kakis.show');
@@ -73,6 +74,9 @@ Route::get('/rotallietas/{rotallieta}', [RotallietaController::class, 'show'])->
 Route::get('/rotallietas/{rotallieta}/edit', [RotallietaController::class, 'edit'])->name('rotallietas.edit');
 Route::put('/rotallietas/{rotallieta}', [RotallietaController::class, 'update'])->name('rotallietas.update');
 Route::delete('/rotallietas/{rotallieta}', [RotallietaController::class, 'destroy'])->name('rotallietas.destroy');
+
+Route::get('/getKakaRotalllietas/{Cipa_numurs}', [RotallietaController::class, 'getKakaRotalllietas'])->name('getKakaRotalllietas');
+
 
 Route::get('/pardevejs', [PardevejsController::class, 'index'])->name('pardevejs.index');
 Route::get('/pardevejs/create', [PardevejsController::class, 'create'])->name('pardevejs.create');
